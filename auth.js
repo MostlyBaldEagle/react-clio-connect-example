@@ -1,28 +1,28 @@
 const app = require('express')();
 const simpleOauthModule = require('simple-oauth2');
+let config = require('./config.json');
 
-const port = 3000;
-
+const port = config.port;
 
 // Set the configuration settings
 const credentials = {
     client: {
-        id: 'Rnp1L7DxqYPyTka5AR9h8Q7QLL2rGvqxwaEo6R6S ',
-        secret: '4TG03EH2VX5o0Yr631WjREsTkAEuonjlQy0kY4t7'
+        id: config.id,
+        secret: config.secret
     },
     auth: {
-        tokenHost: 'https://app.clio.com/oauth/authorize'
+        tokenHost: config.tokenHost
     }
 };
 
 
-createApplication = (cb) => {
-    const callbackUrl = 'http://localhost:3001/callback';
+const createApplication = (cb) => {
+    const callbackUrl = config.callbackUrl;
 
     app.listen(port, (err) => {
         if (err) return console.error(err);
 
-        console.log(`Express server listening at http://localhost:${port}`);
+        console.log(`Express server listening at ${config.callbackUrl}`);
 
         cb({
             app,
@@ -39,9 +39,16 @@ createApplication(({ app, callbackUrl }) => {
         redirect_uri: callbackUrl,
     });
 
+    app.use(function (req, res, next) {
+        //       res.header("Access-Control-Allow-Origin", "*");
+        //       res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+        next();
+    });
+
     // Initial page redirecting to Github
+    // make this call from my react app through proxy server
     app.get('/auth', (req, res) => {
-        console.log(authorizationUri);
+        console.log("authorizationUri", authorizationUri);
         res.redirect(authorizationUri);
     });
 
@@ -52,6 +59,7 @@ createApplication(({ app, callbackUrl }) => {
             code,
         };
 
+        console.log(req.query)
         try {
             const result = await oauth2.authorizationCode.getToken(options);
 

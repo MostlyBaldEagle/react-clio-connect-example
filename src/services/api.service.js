@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { ClioConstants } from '../constants/clio.constants'
 
 const createInstance = (token) => {
     return axios.create({
@@ -15,12 +14,12 @@ const APIService = {
 
     authenticateWithClio: () => {
         const instance = axios.create({
-            baseURL: "http://localhost:2000/oauth/authorize",
+            baseURL: "http://localhost:3000/auth",
             headers: {
                 "Content-Type": "application/json"
             }
         });
-        return instance.get(`?response_type=code&client_id=${ClioConstants.CLIENT_ID}&redirect_uri=http%3A%2F%2F${ClioConstants.HOST}`);
+        return instance.get();
     },
     get: () => {
         const instance = createInstance("test");
