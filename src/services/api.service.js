@@ -1,31 +1,31 @@
 import axios from 'axios';
+import { ClioConstants } from '../constants/clio.constants'
 
 const createInstance = (token) => {
     return axios.create({
-        baseURL : "",
-        headers :{
+        baseURL: "",
+        headers: {
             Authentication: `Bearer ${token}`,
-            "Content-Type":"application/json"
+            "Content-Type": "application/json"
         }
     });
 }
 
 const APIService = {
 
-    authenticateWithClio : () => {
+    authenticateWithClio: () => {
         const instance = axios.create({
-            baseURL : "https://app.clio.com/oauth/authorize",
-            headers : {
-                "Access-Control-Allow-Origin": "localhost:3000",
-                "Content-Type":"application/json"
+            baseURL: "http://localhost:2000/oauth/authorize",
+            headers: {
+                "Content-Type": "application/json"
             }
         });
-      return instance.get("?response_type=code&client_id=QvTCUKgfKZVCfapywEpqOJ5wReAKM9RYDS7Ko9Tq&redirect_uri=http%3A%2F%2Flocalhost:3000");
+        return instance.get(`?response_type=code&client_id=${ClioConstants.CLIENT_ID}&redirect_uri=http%3A%2F%2F${ClioConstants.HOST}`);
     },
     get: () => {
-      const instance = createInstance("test");
-      console.log(instance);
+        const instance = createInstance("test");
+        console.log(instance);
     },
 }
 
-export { APIService};
+export { APIService };
