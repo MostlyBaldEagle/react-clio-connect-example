@@ -22,7 +22,7 @@ const createApplication = (cb) => {
     app.listen(port, (err) => {
         if (err) return console.error(err);
 
-        console.log(`Express server listening at ${config.callbackUrl}`);
+        console.log(`Express server listening at http://localhost:${config.port}`);
 
         cb({
             app,
