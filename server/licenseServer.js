@@ -1,13 +1,11 @@
 const Store = require("data-store");
+const uuid = require('uuidv4');
+
 let LicenseType = {
   Individual: "Individual",
 };
 const createLicense = () => {
-  return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
-    var r = (Math.random() * 16) | 0,
-      v = c == "x" ? r : (r & 0x3) | 0x8;
-    return v.toString(16);
-  });
+  return uuid();
 };
 
 const findLicense = (user) => {
@@ -20,7 +18,7 @@ const findLicense = (user) => {
 
 const storeLicense = (user, license) => {
   LicenseServer.store.set(user, license);
-};
+}; ``
 
 const LicenseServer = {
   store: new Store({ path: "license.json" }),

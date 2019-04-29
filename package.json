@@ -17,14 +17,16 @@
     "redux-persist": "5.10.0",
     "redux-thunk": "2.3.0",
     "simple-oauth2": "^2.2.1",
-    "typescript": "3.4.4"
+    "typescript": "3.4.4",
+    "uuidv4": "^4.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "nodemon --ignore 'license.json' ./server/expressServer.js"
+    "server": "nodemon --ignore 'license.json' ./server/expressServer.js",
+    "all": "yarn server & yarn start"
   },
   "browserslist": [
     ">0.2%",
@@ -45,6 +47,7 @@
     "@types/react-router-dom": "^4.3.2",
     "@types/redux-logger": "^3.0.7",
     "@types/webpack-env": "^1.13.9",
+    "concurrently": "^4.1.0",
     "eslint-plugin-react": "7.12.4"
   }
 }
