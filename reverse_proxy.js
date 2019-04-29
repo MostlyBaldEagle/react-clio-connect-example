@@ -3,27 +3,28 @@ var app = express();
 var httpProxy = require('http-proxy');
 var apiProxy = httpProxy.createProxyServer();
 var serverOne = 'http://localhost:3000',
-    serverTwo = 'http://localhost:3001',
-    serverThree = 'https://app.clio.com';
+  serverTwo = 'http://localhost:3001',
+  serverThree = 'https://app.clio.com';
 
 app.all("/auth", function (req, res) {
-    console.log('redirecting to authentication');
-    apiProxy.web(req, res, { target: serverOne });
+  console.log('redirecting to authentication');
+  apiProxy.web(req, res, { target: serverOne });
 });
 
+
 app.all("/token", function (req, res) {
-    console.log('callback');
-    apiProxy.web(req, res, { target: serverOne });
+  console.log('callback');
+  apiProxy.web(req, res, { target: serverOne });
 });
 
 app.all("/api/v4/*", function (req, res) {
-    console.log('redirecting api requests');
-    apiProxy.web(req, res, { target: serverThree });
+  console.log('redirecting api requests');
+  apiProxy.web(req, res, { target: serverThree });
 });
 
 app.all("*", function (req, res) {
-    console.log('redirecting all other requests');
-    apiProxy.web(req, res, { target: serverTwo });
+  console.log('redirecting all other requests');
+  apiProxy.web(req, res, { target: serverTwo });
 });
 
 app.listen(2000);
