@@ -38,5 +38,45 @@
     },
     "username": "",
     "password": ""
+  },
+  "user2": {
+    "license": {
+      "uuid": "fbe07ee9-e176-4a50-b63c-ffe4e8779919",
+      "type": "Individual",
+      "discountPercent": 0,
+      "licenseSince": 1556551736585
+    },
+    "username": "",
+    "password": ""
+  },
+  "user10": {
+    "license": {
+      "uuid": "c44c8030-d39f-4ec7-b055-e46d7697e7ed",
+      "type": "Individual",
+      "discountPercent": 0,
+      "licenseSince": 1556553213594
+    },
+    "username": "",
+    "password": ""
+  },
+  "user9": {
+    "license": {
+      "uuid": "55c9afd8-e778-45e4-9e68-fb65ff27d3da",
+      "type": "Individual",
+      "discountPercent": 0,
+      "licenseSince": 1556553237776
+    },
+    "username": "",
+    "password": ""
+  },
+  "user8": {
+    "license": {
+      "uuid": "799259b1-ffd1-4240-9e55-c7c8c3745e63",
+      "type": "Individual",
+      "discountPercent": 0,
+      "licenseSince": 1556553259513
+    },
+    "username": "",
+    "password": ""
   }
 }
