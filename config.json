@@ -2,6 +2,6 @@
   "port": 3000,
   "id": "Rnp1L7DxqYPyTka5AR9h8Q7QLL2rGvqxwaEo6R6S",
   "secrect": "4TG03EH2VX5o0Yr631WjREsTkAEuonjlQy0kY4t7",
-  "tokenHost": "https://app.clio.com/oauth/authorize",
-  "callbackUrl": "http://localhost:3001/callback"
+  "tokenHost": "https://app.clio.com",
+  "callbackUrl": "http://localhost:2000/token"
 }

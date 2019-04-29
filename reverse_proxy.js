@@ -11,9 +11,9 @@ app.all("/auth", function (req, res) {
     apiProxy.web(req, res, { target: serverOne });
 });
 
-app.all("/callback", function (req, res) {
+app.all("/token", function (req, res) {
     console.log('callback');
-    apiProxy.web(req, res, { target: serverTwo });
+    apiProxy.web(req, res, { target: serverOne });
 });
 
 app.all("/api/v4/*", function (req, res) {

@@ -1,0 +1,42 @@
+{
+  "user4": {
+    "license": {
+      "uuid": "897da38b-034c-4a56-a5d9-579afd74dabd",
+      "type": "Individual",
+      "discountPercent": 0,
+      "licenseSince": 1556498030009
+    },
+    "username": "",
+    "password": ""
+  },
+  "user3": {
+    "license": {
+      "uuid": "b7c17a3e-8c45-49b0-8aab-fa825957434a",
+      "type": "Individual",
+      "discountPercent": 0,
+      "licenseSince": 1556498260764
+    },
+    "username": "",
+    "password": ""
+  },
+  "user6": {
+    "license": {
+      "uuid": "8ce4fe3b-cd41-44da-a232-dadd63b60d5d",
+      "type": "Individual",
+      "discountPercent": 0,
+      "licenseSince": 1556499619432
+    },
+    "username": "",
+    "password": ""
+  },
+  "user1": {
+    "license": {
+      "uuid": "8f39cbf2-42c5-4881-b322-4d1d436aa840",
+      "type": "Individual",
+      "discountPercent": 0,
+      "licenseSince": 1556503055994
+    },
+    "username": "",
+    "password": ""
+  }
+}

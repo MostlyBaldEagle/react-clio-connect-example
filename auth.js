@@ -11,7 +11,9 @@ const credentials = {
         secret: config.secret
     },
     auth: {
-        tokenHost: config.tokenHost
+        tokenHost: config.tokenHost,
+        authorizePath: '/oauth/authorize',
+        tokenPath: '/oauth/token'
     }
 };
 
@@ -53,10 +55,15 @@ createApplication(({ app, callbackUrl }) => {
     });
 
     // Callback service parsing the authorization token and asking for the access token
-    app.get('/callback', async (req, res) => {
+    app.get('/token', async (req, res) => {
         const code = req.query.code;
+        console.log("code:", code)
         const options = {
-            code,
+            code: code,
+            client_id: "Rnp1L7DxqYPyTka5AR9h8Q7QLL2rGvqxwaEo6R6S",
+            client_secret: "4TG03EH2VX5o0Yr631WjREsTkAEuonjlQy0kY4t7",
+            grant_type: "authorization_code",
+            redirect_uri: "http://localhost:3000"
         };
 
         console.log(req.query)
@@ -70,6 +77,7 @@ createApplication(({ app, callbackUrl }) => {
             return res.status(200).json(token)
         } catch (error) {
             console.error('Access Token Error', error.message);
+            console.log(error);
             return res.status(500).json('Authentication failed');
         }
     });
